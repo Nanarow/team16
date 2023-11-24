@@ -4,16 +4,18 @@ import "time"
 
 type User struct {
 	BaseModel
-	FirstName            string
-	LastName             string
-	Email                string
-	Password             string
-	Phone         string
-	Profile              string
-	RoleID        uint
-	GenderID      uint
-	RidingLevelID uint
-	Support []Support
+	FirstName        string
+	LastName         string
+	Email            string
+	Password         string
+	Phone            string
+	Profile          string
+	RoleID           uint
+	GenderID         uint
+	RidingLevelID    uint
+	Support          []Support
+	TourRegistration []TourRegistration
+	Enrollment       []Enrollment
 }
 
 type Role struct {
@@ -30,11 +32,11 @@ type RidingLevel struct {
 
 type Support struct {
 	BaseModel
-	UserID      uint
-	Corporate   string
-	Description string
-	Date        time.Time
-	Image              string
+	UserID           uint
+	Corporate        string
+	Description      string
+	Date             time.Time
+	Image            string
 	TourRegistration []TourRegistration
 	Enrollment       []Enrollment
 }
