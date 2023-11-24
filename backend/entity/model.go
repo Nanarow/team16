@@ -2,8 +2,6 @@ package entity
 
 import "time"
 
-import "time"
-
 type User struct {
 	BaseModel
 	FirstName        string
