@@ -81,6 +81,7 @@ type Horse struct {
 	SexID      uint
 	StableID   uint
 	Courses    []Course `gorm:"many2many:horse_courses;"`
+	Healts     []Healts
 }
 
 type Stable struct {
@@ -129,6 +130,59 @@ type Enrollment struct {
 	CourseID uint
 	Date     time.Time
 	Remark   string
+}
+
+type Employee struct {
+	BaseModel
+	PositionID uint
+	GenderID   uint
+	AddressID  uint
+	FirstName  string
+	LastName   string
+	Email      string
+	Password   string
+	DayOfBirth time.Time
+	Phone      string
+	Healths    []Health
+	Horses     []Horse
+	Courses    []Course
+	Foods      []Food
+}
+
+type Position struct {
+	BaseModel
+	Name        string
+	Salary      int
+	Description string
+	Employee    []Employee
+}
+
+type Gender struct {
+	BaseModel
+	Name     string
+	Employee []Employee
+}
+type Address struct {
+	BaseModel
+	Local    string
+	Locality string
+	District string
+	Province string
+	ZipCode  string
+	Employee []Employee
+}
+
+type Health struct {
+	BaseModel
+	HorseID    uint
+	EmployeeID uint
+	Vital      string
+	Tooth      string
+	Vaccine    string
+	Parasite   string
+	Blood      string
+	Remark     string
+	Date       time.Time
 }
 
 type Food struct {
