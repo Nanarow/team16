@@ -18,15 +18,20 @@ func InitRouter(route *gin.Engine) {
 
 }
 func initRequiredAuth(route *gin.RouterGroup) {
-	route.Use(middlewares.Authentication())
-	route.Use(middlewares.Authorization())
+	// route.Use(middlewares.Authentication())
+	// route.Use(middlewares.Authorization())
+	route.GET("/tours", controllers.GetAll[*entity.TourRegistration])
+	route.GET("/tours/:id", controllers.Get[*entity.TourRegistration])
+	route.POST("/tours", controllers.Create[*entity.TourRegistration])
+	route.PUT("/tours/:id", controllers.Update[*entity.TourRegistration])
+	route.DELETE("/tours/:id", controllers.Delete[*entity.TourRegistration])
 
-	route.GET("/users/:id", func(c *gin.Context) {
+	// route.GET("/users/:id", func(c *gin.Context) {
 
-		c.JSON(200, gin.H{"id": c.Param("id"), "full_path": c.FullPath()})
-	})
-	route.GET("/users", func(c *gin.Context) {
+	// 	c.JSON(200, gin.H{"id": c.Param("id"), "full_path": c.FullPath()})
+	// })
+	// route.GET("/users", func(c *gin.Context) {
 
-		c.JSON(200, gin.H{"id": "all", "full_path": c.FullPath()})
-	})
+	// 	c.JSON(200, gin.H{"id": "all", "full_path": c.FullPath()})
+	// })
 }
