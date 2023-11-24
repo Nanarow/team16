@@ -154,22 +154,23 @@ type Position struct {
 	Name        string
 	Salary      int
 	Description string
-	Employee    []Employee
+	Employees   []Employee
 }
 
 type Gender struct {
 	BaseModel
-	Name     string
-	Employee []Employee
+	Name      string
+	Employees []Employee
+	Users     []User
 }
 type Address struct {
 	BaseModel
-	Local    string
-	Locality string
-	District string
-	Province string
-	ZipCode  string
-	Employee []Employee
+	Local     string
+	Locality  string
+	District  string
+	Province  string
+	ZipCode   string
+	Employees []Employee
 }
 
 type Health struct {
