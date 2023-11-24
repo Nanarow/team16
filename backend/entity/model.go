@@ -82,6 +82,7 @@ type Horse struct {
 	BreedID    uint
 	SexID      uint
 	StableID   uint
+	Courses    []Course `gorm:"many2many:horse_courses;"`
 }
 
 type Stable struct {
