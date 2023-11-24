@@ -22,7 +22,6 @@ func SetupDatabase() {
 		&Role{},
 		&RidingLevel{},
 		&Support{},
-		&LoginPayload{},
 		&Course{},
 		&Schedule{},
 		&Location{},
@@ -30,10 +29,15 @@ func SetupDatabase() {
 		&Stable{},
 		&Bleed{},
 		&Sex{},
+		&Gender{},
+		&Position{},
 		&TourType{},
 		&TourRegistration{},
 		&Enrollment{},
 		&Food{},
+		&Employee{},
+		&Address{},
+		&Health{},
 	)
 	db = database
 }
