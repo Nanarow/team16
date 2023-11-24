@@ -4,18 +4,18 @@ import "time"
 
 type User struct {
 	BaseModel
-	FirstName        string
-	LastName         string
-	Email            string
-	Password         string
-	Phone            string
-	Profile          string
-	RoleID           uint
-	GenderID         uint
-	RidingLevelID    uint
-	Support          []Support
-	TourRegistration []TourRegistration
-	Enrollment       []Enrollment
+	FirstName         string
+	LastName          string
+	Email             string
+	Password          string
+	Phone             string
+	Profile           string
+	RoleID            uint
+	GenderID          uint
+	RidingLevelID     uint
+	Supports          []Support
+	TourRegistrations []TourRegistration
+	Enrollments       []Enrollment
 }
 
 type Role struct {
@@ -52,27 +52,25 @@ type Course struct {
 	Duration     int
 	Participants int
 	Description  string
-	EmployeeID	*uint
-	Employee	Employee	`gorm:"foreignKey:EmployeeID"`
-	ScheduleID	*uint
-	Schedule	Schedule	`gorm:"foreignKey:ScheduleID"`
+	EmployeeID   uint
+	ScheduleID   uint
 }
 
 type Schedule struct {
 	BaseModel
-	Date	time.Time
-	StartTime	time.Time
-	Description	string
-	LocationID	*uint
-	Location	Location	`gorm:"foreignKey:LocationID"`
-	Courses	[]Course	
+	Date        time.Time
+	StartTime   time.Time
+	Description string
+	LocationID  uint
+	Location    Location
+	Courses     []Course
 }
 
 type Location struct {
 	BaseModel
-	Name	string
-	Description	string
-	Schedules	[]Schedule	
+	Name        string
+	Description string
+	Schedules   []Schedule
 }
 type Horse struct {
 	BaseModel
@@ -110,11 +108,11 @@ type Sex struct {
 
 type TourType struct {
 	BaseModel
-	Name             string
-	MinParticipant   int
-	MaxParticipant   int
-	Description      string
-	TourRegistration []TourRegistration
+	Name              string
+	MinParticipant    int
+	MaxParticipant    int
+	Description       string
+	TourRegistrations []TourRegistration
 }
 
 type TourRegistration struct {
@@ -132,33 +130,4 @@ type Enrollment struct {
 	CourseID uint
 	Date     time.Time
 	Remark   string
-}
-
-type Course struct {
-	BaseModel
-	Name         string
-	Duration     int
-	Participants int
-	Description  string
-	EmployeeID	*uint
-	Employee	Employee	`gorm:"foreignKey:EmployeeID"`
-	ScheduleID	*uint
-	Schedule	Schedule	`gorm:"foreignKey:ScheduleID"`
-}
-
-type Schedule struct {
-	BaseModel
-	Date	time.Time
-	StartTime	time.Time
-	Description	string
-	LocationID	*uint
-	Location	Location	`gorm:"foreignKey:LocationID"`
-	Courses	[]Course	
-}
-
-type Location struct {
-	BaseModel
-	Name	string
-	Description	string
-	Schedules	[]Schedule	`gorm:"foreignKey:LocationID"`
 }
