@@ -33,7 +33,7 @@ func SetupDatabase() {
 		&TourType{},
 		&TourRegistration{},
 		&Enrollment{},
-		&Food{}
+		&Food{},
 	)
 	db = database
 }
