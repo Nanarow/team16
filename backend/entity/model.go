@@ -2,6 +2,11 @@ package entity
 
 import "time"
 
+type LoginPayload struct {
+	Email    string
+	Password string
+}
+
 type User struct {
 	BaseModel
 	FirstName         string
@@ -37,11 +42,6 @@ type Support struct {
 	Description string
 	Date        time.Time
 	Image       string
-}
-
-type LoginPayload struct {
-	Email    string
-	Password string
 }
 
 type Course struct {
