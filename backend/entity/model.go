@@ -1,20 +1,15 @@
 package entity
 
-import (
-	"time"
-
-	"github.com/sut66/team16/backend/utils"
-	"gorm.io/gorm"
-)
+import "time"
 
 type User struct {
 	BaseModel
-	FirstName     string
-	LastName      string
-	Email         string
-	Password      string
+	FirstName            string
+	LastName             string
+	Email                string
+	Password             string
 	Phone         string
-	Profile       string
+	Profile              string
 	RoleID        uint
 	GenderID      uint
 	RidingLevelID uint
@@ -39,17 +34,9 @@ type Support struct {
 	Corporate   string
 	Description string
 	Date        time.Time
-	Image       string
-}
-
-func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
-	// hash password
-	hashPassword, err := utils.HashPassword(u.Password)
-	if err != nil {
-		return err
-	}
-	u.Password = hashPassword
-	return
+	Image              string
+	TourRegistration []TourRegistration
+	Enrollment       []Enrollment
 }
 
 type LoginPayload struct {
@@ -57,8 +44,28 @@ type LoginPayload struct {
 	Password string
 }
 
-// kasama has join
+type TourType struct {
+	BaseModel
+	Name             string
+	MinParticipant   int
+	MaxParticipant   int
+	Description      string
+	TourRegistration []TourRegistration
+}
 
-//test 2
-// test commit
-// kasama has join
+type TourRegistration struct {
+	BaseModel
+	UserID     uint
+	TourTypeID uint
+	Schedule   uint
+	Name       string
+	Date       time.Time
+}
+
+type Enrollment struct {
+	BaseModel
+	UserID   uint
+	CourseID uint
+	Date     time.Time
+	Remark   string
+}
