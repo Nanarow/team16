@@ -36,6 +36,8 @@ func SetupDatabase() {
 		&Enrollment{},
 		&Food{},
 		&Employee{},
+		&Address{},
+		&Health{},
 	)
 	db = database
 }
