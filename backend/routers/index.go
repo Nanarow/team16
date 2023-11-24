@@ -26,6 +26,16 @@ func initRequiredAuth(route *gin.RouterGroup) {
 	route.PUT("/tours/:id", controllers.Update[*entity.TourRegistration])
 	route.DELETE("/tours/:id", controllers.Delete[*entity.TourRegistration])
 
+	InitBasicApi[*entity.Food](route, "/foods")
+	InitBasicApi[*entity.User](route, "/users")
+	InitBasicApi[*entity.Role](route, "/roles")
+	InitBasicApi[*entity.RidingLevel](route, "/riding_levels")
+	InitBasicApi[*entity.Course](route, "/courses")
+	InitBasicApi[*entity.Schedule](route, "/schedules")
+	InitBasicApi[*entity.Health](route, "/healths")
+	InitBasicApi[*entity.Horse](route, "/horses")
+	InitBasicApi[*entity.Gender](route, "/gender")
+
 	// route.GET("/users/:id", func(c *gin.Context) {
 
 	// 	c.JSON(200, gin.H{"id": c.Param("id"), "full_path": c.FullPath()})

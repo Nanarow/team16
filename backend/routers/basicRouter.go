@@ -6,7 +6,7 @@ import (
 	"github.com/sut66/team16/backend/entity"
 )
 
-func InitBasicApi[Type entity.Models](route *gin.Engine, relativePath string) {
+func InitBasicApi[Type entity.Models](route *gin.RouterGroup, relativePath string) {
 	route.GET(relativePath+"/:id", controllers.Get[Type])
 	route.GET(relativePath, controllers.GetAll[Type])
 	route.POST(relativePath, controllers.Create[Type])
