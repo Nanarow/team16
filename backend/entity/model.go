@@ -65,14 +65,14 @@ type Schedule struct {
 	Description	string
 	LocationID	*uint
 	Location	Location	`gorm:"foreignKey:LocationID"`
-	Courses	[]Course	`gorm:"foreignKey:ScheduleID"`
+	Courses	[]Course	
 }
 
 type Location struct {
 	BaseModel
 	Name	string
 	Description	string
-	Schedules	[]Schedule	`gorm:"foreignKey:LocationID"`
+	Schedules	[]Schedule	
 }
 type Horse struct {
 	BaseModel
@@ -153,7 +153,7 @@ type Schedule struct {
 	Description	string
 	LocationID	*uint
 	Location	Location	`gorm:"foreignKey:LocationID"`
-	Courses	[]Course	`gorm:"foreignKey:ScheduleID"`
+	Courses	[]Course	
 }
 
 type Location struct {
