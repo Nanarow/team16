@@ -4,16 +4,16 @@ import "time"
 
 type User struct {
 	BaseModel
-	FirstName            string
-	LastName             string
-	Email                string
-	Password             string
+	FirstName     string
+	LastName      string
+	Email         string
+	Password      string
 	Phone         string
-	Profile              string
+	Profile       string
 	RoleID        uint
 	GenderID      uint
 	RidingLevelID uint
-	Support []Support
+	Support       []Support
 }
 
 type Role struct {
@@ -30,11 +30,11 @@ type RidingLevel struct {
 
 type Support struct {
 	BaseModel
-	UserID      uint
-	Corporate   string
-	Description string
-	Date        time.Time
-	Image              string
+	UserID           uint
+	Corporate        string
+	Description      string
+	Date             time.Time
+	Image            string
 	TourRegistration []TourRegistration
 	Enrollment       []Enrollment
 }
@@ -68,4 +68,57 @@ type Enrollment struct {
 	CourseID uint
 	Date     time.Time
 	Remark   string
+}
+
+type Employee struct {
+	BaseModel
+	PositionID uint
+	GenderID   uint
+	AddressID  uint
+	FirstName  string
+	LastName   string
+	Email      string
+	Password   string
+	DayOfBirth time.Time
+	Phone      string
+	Healths    []Health
+	Horses     []Horse
+	Courses    []Course
+	Foods      []Food
+}
+
+type Position struct {
+	BaseModel
+	Name        string
+	Salary      int
+	Description string
+	Employee    []Employee
+}
+
+type Gender struct {
+	BaseModel
+	Name     string
+	Employee []Employee
+}
+type Address struct {
+	BaseModel
+	Local    string
+	Locality string
+	District string
+	Province string
+	ZipCode  string
+	Employee []Employee
+}
+
+type Health struct {
+	BaseModel
+	HorseID    uint
+	EmployeeID uint
+	Vital      string
+	Tooth      string
+	Vaccine    string
+	Parasite   string
+	Blood      string
+	Remark     string
+	Date       time.Time
 }
