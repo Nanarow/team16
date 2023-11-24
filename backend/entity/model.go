@@ -25,9 +25,9 @@ type Role struct {
 
 type RidingLevel struct {
 	BaseModel
-	Name         string
-	Description  string
-	RidingLevels []RidingLevel
+	Name        string
+	Description string
+	Users       []User
 }
 
 type Support struct {
@@ -79,7 +79,7 @@ type Horse struct {
 	Date       time.Time
 	Image      string
 	EmployeeID uint
-	BreedId    uint
+	BreedID    uint
 	SexID      uint
 	StableID   uint
 }
