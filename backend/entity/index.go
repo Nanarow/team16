@@ -17,6 +17,23 @@ func SetupDatabase() {
 		panic("failed to connect database")
 	}
 	// Migrate the schema
-	database.AutoMigrate(&User{})
+	database.AutoMigrate(
+		&User{},
+		&Role{},
+		&RidingLevel{},
+		&Support{},
+		&LoginPayload{},
+		&Course{},
+		&Schedule{},
+		&Location{},
+		&Horse{},
+		&Stable{},
+		&Bleed{},
+		&Sex{},
+		&TourType{},
+		&TourRegistration{},
+		&Enrollment{},
+		&Food{},
+	)
 	db = database
 }

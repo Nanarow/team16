@@ -33,7 +33,7 @@ type RidingLevel struct {
 	BaseModel
 	Name        string
 	Description string
-	Users []User
+	Users       []User
 }
 
 type Support struct {
@@ -154,21 +154,22 @@ type Position struct {
 	Name        string
 	Salary      int
 	Description string
-	Employees    []Employee
+	Employees   []Employee
 }
 
 type Gender struct {
 	BaseModel
-	Name     string
+	Name      string
 	Employees []Employee
+	Users     []User
 }
 type Address struct {
 	BaseModel
-	Local    string
-	Locality string
-	District string
-	Province string
-	ZipCode  string
+	Local     string
+	Locality  string
+	District  string
+	Province  string
+	ZipCode   string
 	Employees []Employee
 }
 
