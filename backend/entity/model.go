@@ -53,6 +53,7 @@ type Course struct {
 	Description  string
 	EmployeeID   uint
 	ScheduleID   uint
+	Horses       []*Horse `gorm:"many2many:horse_courses;"`
 }
 
 type Schedule struct {
@@ -80,7 +81,7 @@ type Horse struct {
 	BleedID    uint
 	SexID      uint
 	StableID   uint
-	Courses    []Course `gorm:"many2many:horse_courses;"`
+	Courses    []*Course `gorm:"many2many:horse_courses;"`
 	Healths    []Health
 }
 
