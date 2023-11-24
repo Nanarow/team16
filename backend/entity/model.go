@@ -33,7 +33,7 @@ type RidingLevel struct {
 	BaseModel
 	Name        string
 	Description string
-	RidingLevel []RidingLevel
+	Users       []User
 }
 
 type Support struct {
