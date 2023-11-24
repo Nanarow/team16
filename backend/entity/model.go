@@ -37,8 +37,6 @@ type Support struct {
 	Description       string
 	Date              time.Time
 	Image             string
-	TourRegistrations []TourRegistration
-	Enrollments       []Enrollment
 }
 
 type LoginPayload struct {
