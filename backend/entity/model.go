@@ -32,11 +32,11 @@ type RidingLevel struct {
 
 type Support struct {
 	BaseModel
-	UserID            uint
-	Corporate         string
-	Description       string
-	Date              time.Time
-	Image             string
+	UserID      uint
+	Corporate   string
+	Description string
+	Date        time.Time
+	Image       string
 }
 
 type LoginPayload struct {
@@ -81,7 +81,7 @@ type Horse struct {
 	SexID      uint
 	StableID   uint
 	Courses    []Course `gorm:"many2many:horse_courses;"`
-	Healts     []Healts
+	Healths    []Health
 }
 
 type Stable struct {
