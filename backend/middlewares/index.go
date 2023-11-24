@@ -41,7 +41,7 @@ func Authorization() gin.HandlerFunc {
 			return
 		}
 
-		access := Roles[user.Role]
+		access := Roles[""]
 		if !VerifyAccessRights(access, c) {
 			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "Access Denied"})
 			return
