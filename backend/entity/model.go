@@ -30,3 +30,31 @@ type LoginPayload struct {
 	Password string
 }
 
+type Course struct {
+	BaseModel
+	Name         string
+	Duration     int
+	Participants int
+	Description  string
+	EmployeeID	*uint
+	Employee	Employee	`gorm:"foreignKey:EmployeeID"`
+	ScheduleID	*uint
+	Schedule	Schedule	`gorm:"foreignKey:ScheduleID"`
+}
+
+type Schedule struct {
+	BaseModel
+	Date	time.Time
+	StartTime	time.Time
+	Description	string
+	LocationID	*uint
+	Location	Location	`gorm:"foreignKey:LocationID"`
+	Courses	[]Course	`gorm:"foreignKey:ScheduleID"`
+}
+
+type Location struct {
+	BaseModel
+	Name	string
+	Description	string
+	Schedules	[]Schedule	`gorm:"foreignKey:LocationID"`
+}
