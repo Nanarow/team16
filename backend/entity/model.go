@@ -25,12 +25,6 @@ func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
 	return
 }
 
-type Member struct {
-	BaseModel
-	FirstName string
-	LastName  string
-}
-
 type LoginPayload struct {
 	Email    string
 	Password string
