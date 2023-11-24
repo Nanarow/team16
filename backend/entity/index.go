@@ -22,7 +22,6 @@ func SetupDatabase() {
 		&Role{},
 		&RidingLevel{},
 		&Support{},
-		&LoginPayload{},
 		&Course{},
 		&Schedule{},
 		&Location{},
