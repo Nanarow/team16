@@ -25,7 +25,8 @@ type User struct {
 
 type Role struct {
 	BaseModel
-	Name string
+	Name  string
+	Users []User
 }
 
 type RidingLevel struct {
@@ -60,7 +61,6 @@ type Schedule struct {
 	StartTime   time.Time
 	Description string
 	LocationID  uint
-	Location    Location
 	Courses     []Course
 }
 
