@@ -21,10 +21,11 @@ type LoginPayload struct {
 
 type TourType struct {
 	BaseModel
-	Name           string
-	MinParticipant int
-	MaxParticipant int
-	Description    string
+	Name             string
+	MinParticipant   int
+	MaxParticipant   int
+	Description      string
+	TourRegistration []TourRegistration
 }
 
 type TourRegistration struct {
