@@ -1,18 +1,45 @@
 package entity
 
 import (
+	"time"
+
 	"github.com/sut66/team16/backend/utils"
 	"gorm.io/gorm"
 )
 
 type User struct {
 	BaseModel
-	FirstName string
-	LastName  string
-	Email     string
-	Password  string
-	Phone     string
-	Role      string
+	FirstName     string
+	LastName      string
+	Email         string
+	Password      string
+	Phone         string
+	Profile       string
+	RoleID        uint
+	GenderID      uint
+	RidingLevelID uint
+	Support []Support
+}
+
+type Role struct {
+	BaseModel
+	Name string
+}
+
+type RidingLevel struct {
+	BaseModel
+	Name        string
+	Description string
+	RidingLevel []RidingLevel
+}
+
+type Support struct {
+	BaseModel
+	UserID      uint
+	Corporate   string
+	Description string
+	Date        time.Time
+	Image       string
 }
 
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
