@@ -29,10 +29,13 @@ func SetupDatabase() {
 		&Stable{},
 		&Bleed{},
 		&Sex{},
+		&Gender{},
+		&Position{},
 		&TourType{},
 		&TourRegistration{},
 		&Enrollment{},
 		&Food{},
+		&Employee{},
 	)
 	db = database
 }
