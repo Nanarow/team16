@@ -25,20 +25,20 @@ type Role struct {
 
 type RidingLevel struct {
 	BaseModel
-	Name        string
-	Description string
-	RidingLevel []RidingLevel
+	Name         string
+	Description  string
+	RidingLevels []RidingLevel
 }
 
 type Support struct {
 	BaseModel
-	UserID           uint
-	Corporate        string
-	Description      string
-	Date             time.Time
-	Image            string
-	TourRegistration []TourRegistration
-	Enrollment       []Enrollment
+	UserID            uint
+	Corporate         string
+	Description       string
+	Date              time.Time
+	Image             string
+	TourRegistrations []TourRegistration
+	Enrollments       []Enrollment
 }
 
 type LoginPayload struct {
