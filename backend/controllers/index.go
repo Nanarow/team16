@@ -9,6 +9,30 @@ import (
 	"gorm.io/gorm/clause"
 )
 
+func HandlerCreate[T entity.Models](c *gin.Context, handler func(*gin.Context, T)) {
+	var model T
+	err := c.ShouldBindJSON(&model)
+	if isError(err, c) {
+		return
+	}
+	handler(c, model)
+}
+
+func HandlerUpdate[T entity.Models](c *gin.Context, handler func(*gin.Context, T, uint)) {
+	var model T
+	id := c.Param("id")
+	id_int, err := strconv.Atoi(id)
+	if isError(err, c) {
+		return
+	}
+	err = c.ShouldBindJSON(&model)
+	if isError(err, c) {
+		return
+	}
+	model.SetID(uint(id_int))
+	handler(c, model, uint(id_int))
+}
+
 func Get[T entity.Models](c *gin.Context) {
 	var model T
 	id := c.Param("id")
@@ -39,30 +63,6 @@ func Create[T entity.Models](c *gin.Context) {
 		return
 	}
 	responseOK(model, c)
-}
-
-func HandlerCreate[T entity.Models](c *gin.Context, handler func(*gin.Context, T)) {
-	var model T
-	err := c.ShouldBindJSON(&model)
-	if isError(err, c) {
-		return
-	}
-	handler(c, model)
-}
-
-func HandlerUpdate[T entity.Models](c *gin.Context, handler func(*gin.Context, T, uint)) {
-	var model T
-	id := c.Param("id")
-	id_int, err := strconv.Atoi(id)
-	if isError(err, c) {
-		return
-	}
-	err = c.ShouldBindJSON(&model)
-	if isError(err, c) {
-		return
-	}
-	model.SetID(uint(id_int))
-	handler(c, model, uint(id_int))
 }
 
 func Update[T entity.Models](c *gin.Context) {
