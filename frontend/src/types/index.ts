@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { userStruct } from "../validators";
+import { ValidUser } from "../validators";
 
-type User = z.infer<typeof userStruct>;
+type User = z.infer<typeof ValidUser>;
 
 export type { User };
