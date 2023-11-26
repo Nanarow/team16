@@ -17,8 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@shadcn/*": ["src/lib/components/*"],
-      "@cn": ["src/lib/utils"]
+      "@shadcn/*": ["./src/lib/components/*"],
+      "@cn": ["./src/lib/utils"]
     }
   },
   "include": ["src"]
