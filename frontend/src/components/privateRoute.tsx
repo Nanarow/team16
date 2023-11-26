@@ -2,15 +2,15 @@ import { Navigate, Outlet } from "react-router-dom";
 
 type Props = {
   role: "admin" | "employee" | "user";
-  redirectPath?: string;
+  path?: string;
 };
 
-const PrivateRoute = ({ role, redirectPath = "/login" }: Props) => {
+const PrivateRoute = ({ role, path = "/login" }: Props) => {
   if (!role) {
-    return <Navigate to={redirectPath} replace />;
+    return <Navigate to={path} replace />;
   }
 
-  return <Outlet />;
+  return <Outlet context={[1, 2]} />;
 };
 
 export default PrivateRoute;

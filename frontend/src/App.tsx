@@ -21,16 +21,19 @@ function App() {
       <Route path="/login/admin" element={<Login />}></Route>
       <Route path="/login/employee" element={<Login />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route element={<PrivateRoute role="admin" />}>
-        <Route path="/employee" element={<Employee />}></Route>
-        <Route path="/user" element={<User />}></Route>
-      </Route>
+
       <Route element={<PrivateRoute role="user" />}>
         <Route path="/course" element={<Course />}></Route>
         <Route path="/tour" element={<Tour />}></Route>
         <Route path="/account" element={<Account />}></Route>
       </Route>
-      <Route element={<PrivateRoute role="employee" />}>
+
+      <Route element={<PrivateRoute role="admin" path="/login/admin" />}>
+        <Route path="/employee" element={<Employee />}></Route>
+        <Route path="/user" element={<User />}></Route>
+      </Route>
+
+      <Route element={<PrivateRoute role="employee" path="/login/employee" />}>
         <Route path="/course/setting" element={<CourseSetting />}></Route>
         <Route path="/food" element={<Food />}></Route>
         <Route path="/heath" element={<Health />}></Route>
