@@ -1,9 +1,5 @@
 {
   "name": "frontend",
-  "imports": {
-    "@shadcn/*": "./src/lib/components/*",
-    "@cn": "./src/lib/utils"
-  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
