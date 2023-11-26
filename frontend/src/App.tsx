@@ -1,12 +1,43 @@
-import { Button } from "@shadcn/ui/button";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import {
+  Account,
+  Course,
+  CourseSetting,
+  Employee,
+  Food,
+  Health,
+  Horse,
+  Login,
+  Stable,
+  Tour,
+  User,
+} from "./pages";
+import PrivateRoute from "./components/privateRoute";
 
 function App() {
   return (
-    <>
-      <div className="w-full h-screen bg-slate-400 flex items-center justify-center">
-        <Button>Button</Button>
-      </div>
-    </>
+    <Routes>
+      <Route path="/login/admin" element={<Login />}></Route>
+      <Route path="/login/employee" element={<Login />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route element={<PrivateRoute role="admin" />}>
+        <Route path="/employee" element={<Employee />}></Route>
+        <Route path="/user" element={<User />}></Route>
+      </Route>
+      <Route element={<PrivateRoute role="user" />}>
+        <Route path="/course" element={<Course />}></Route>
+        <Route path="/tour" element={<Tour />}></Route>
+        <Route path="/account" element={<Account />}></Route>
+      </Route>
+      <Route element={<PrivateRoute role="employee" />}>
+        <Route path="/course/setting" element={<CourseSetting />}></Route>
+        <Route path="/food" element={<Food />}></Route>
+        <Route path="/heath" element={<Health />}></Route>
+        <Route path="/stable" element={<Stable />}></Route>
+        <Route path="/horse" element={<Horse />}></Route>
+      </Route>
+    </Routes>
   );
 }
 
