@@ -1,10 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@shadcn/*": ["src/lib/components/*"],
-      "@cn": ["src/lib/utils"]
-    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -19,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@shadcn/*": ["src/lib/components/*"],
+      "@cn": ["src/lib/utils"]
+    }
   },
   "include": ["src"]
 }
