@@ -16,7 +16,7 @@ export default {
         },
         {
           find: "@cn",
-          replacement: path.resolve(__dirname, "./src/lib/utils"),
+          replacement: path.resolve(__dirname, "./src/lib/"),
         },
       ],
     }),
