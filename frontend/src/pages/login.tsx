@@ -21,7 +21,11 @@ const Login = () => {
     console.log("users: ", res);
     toast({
       title: "Users",
-      description: JSON.stringify(res.ok ? res.data : null),
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(res, null, 2)}</code>
+        </pre>
+      ),
     });
   }
 
