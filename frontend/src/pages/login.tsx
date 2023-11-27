@@ -1,8 +1,10 @@
 import { Button } from "@shadcn/ui/button";
 import { http } from "../services/httpRequest";
 import { Badge } from "@shadcn/ui/badge";
+import { useToast } from "@shadcn/ui/use-toast";
 
 const Login = () => {
+  const { toast } = useToast();
   async function onLogout() {
     const res = await http.Post("/logout", {});
     console.log("response: ", res);
@@ -17,6 +19,10 @@ const Login = () => {
   async function getUser() {
     const res = await http.Get("/users");
     console.log("users: ", res);
+    toast({
+      title: "Users",
+      description: JSON.stringify(res.ok ? res.data : null),
+    });
   }
 
   return (
