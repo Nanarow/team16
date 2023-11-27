@@ -14,22 +14,22 @@ function useAuth() {
   return context;
 }
 const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [member, setMemberWithType] = useState();
-  const [memberType, setMemberType] = useState<Role>();
-  const navigate = useNavigate();
-  function setMember() {
-    setMemberWithType(member);
-    if (member) {
-      // if (member.MemberType.Name === "admin") {
-      //     setMemberType("admin")
-      // } else {
-      //     setMemberType("user")
-      // }
-    } else {
-      setMemberType(undefined);
-      navigate("/login");
-    }
-  }
+  //   const [member, setMemberWithType] = useState();
+  //   const [memberType, setMemberType] = useState<Role>();
+  //   const navigate = useNavigate();
+  //   function setMember() {
+  //     setMemberWithType(member);
+  //     if (member) {
+  //       // if (member.MemberType.Name === "admin") {
+  //       //     setMemberType("admin")
+  //       // } else {
+  //       //     setMemberType("user")
+  //       // }
+  //     } else {
+  //       setMemberType(undefined);
+  //       navigate("/login");
+  //     }
+  //   }
 
   return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
 };

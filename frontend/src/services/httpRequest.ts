@@ -11,8 +11,7 @@ type FailedResponse = {
 };
 
 class HttpRequest {
-  private readonly base_url: string =
-    process.env.BASE_URL || "http://localhost:8985";
+  private readonly base_url: string = "http://localhost:8985";
   private content_type = "application/json";
 
   public async Get<DataType>(resource: string) {
@@ -58,12 +57,13 @@ class HttpRequest {
     endpoint: string,
     body?: string
   ) {
-    const options = {
-      method,
+    const options: RequestInit = {
+      method: method,
       headers: {
         "Content-Type": this.content_type,
       },
-      body,
+      body: body,
+      credentials: "include",
     };
     const response = await fetch(endpoint, options);
     const result = await response.json();

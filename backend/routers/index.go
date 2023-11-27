@@ -11,14 +11,14 @@ func InitRouter(route *gin.Engine) {
 
 	route.Use(middlewares.CORS())
 
-	route.POST("/register", controllers.Create[*entity.User])
+	route.POST("/login", controllers.Login)
 
 	authRouter := route.Group("/")
 	initRequiredAuth(authRouter)
 
 }
 func initRequiredAuth(route *gin.RouterGroup) {
-	// route.Use(middlewares.Authentication())
+	route.Use(middlewares.Authentication())
 	// route.Use(middlewares.Authorization())
 	route.GET("/tours", controllers.GetAll[*entity.TourRegistration])
 	route.GET("/tours/:id", controllers.Get[*entity.TourRegistration])

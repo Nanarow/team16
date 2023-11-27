@@ -98,19 +98,6 @@ func Delete[T entity.Models](c *gin.Context) {
 	responseOK(model, c)
 }
 
-// func Register(c *gin.Context, user *entity.User) {
-// 	hashPassword, err := HashPassword(user.Password)
-// 	if isError(err, c, "hash password error") {
-// 		return
-// 	}
-// 	user.Password = hashPassword
-// 	err = entity.DB().Create(&user).Error
-// 	if isError(err, c) {
-// 		return
-// 	}
-// 	responseOK(user, c)
-// }
-
 func Login(c *gin.Context) {
 	var payload entity.LoginPayload
 	var user entity.User
