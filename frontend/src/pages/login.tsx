@@ -1,8 +1,11 @@
 import { Button } from "@shadcn/ui/button";
-import React from "react";
 import { http } from "../services/httpRequest";
 
 const Login = () => {
+  async function onLogout() {
+    const res = await http.Post("/logout", {});
+    console.log("response: ", res);
+  }
   async function onLogin() {
     const res = await http.Post("/login", {
       Email: "admin@admail.com",
@@ -19,6 +22,10 @@ const Login = () => {
     <div className="w-full h-screen bg-slate-500 flex justify-center items-center gap-2">
       <Button onClick={onLogin}>Login</Button>
       <Button onClick={getUser}>Get Users</Button>
+      <Button onClick={() => console.log("Cookie : ", document.cookie)}>
+        Cookie
+      </Button>
+      <Button onClick={onLogout}>Logout</Button>
     </div>
   );
 };

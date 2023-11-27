@@ -119,3 +119,8 @@ func Login(c *gin.Context) {
 	}
 	responseOK(user, c)
 }
+
+func Logout(c *gin.Context) {
+	c.SetCookie("token", "", -1, "/", "localhost", false, true)
+	responseOK("you have been logged out", c)
+}

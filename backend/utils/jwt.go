@@ -13,7 +13,7 @@ var secretKey = []byte("secret8985")
 func ValidateJWT(c *gin.Context) (*jwt.Token, jwt.MapClaims, error) {
 	tokenCookie, err := c.Cookie("token")
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, fmt.Errorf("please login first")
 	}
 
 	token, err := jwt.Parse(tokenCookie, func(token *jwt.Token) (interface{}, error) {

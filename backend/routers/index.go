@@ -12,6 +12,7 @@ func InitRouter(route *gin.Engine) {
 	route.Use(middlewares.CORS())
 
 	route.POST("/login", controllers.Login)
+	route.POST("/logout", controllers.Logout)
 
 	authRouter := route.Group("/")
 	initRequiredAuth(authRouter)
