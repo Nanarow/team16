@@ -1,5 +1,6 @@
 import { Button } from "@shadcn/ui/button";
 import { http } from "../services/httpRequest";
+import { Badge } from "@shadcn/ui/badge";
 
 const Login = () => {
   async function onLogout() {
@@ -21,6 +22,7 @@ const Login = () => {
   return (
     <div className="w-full h-screen bg-slate-500 flex justify-center items-center gap-2">
       <Button onClick={onLogin}>Login</Button>
+      <Badge className=" bg-emerald-500 rounded-full">admin</Badge>
       <Button onClick={getUser}>Get Users</Button>
       <Button onClick={() => console.log("Cookie : ", document.cookie)}>
         Cookie
