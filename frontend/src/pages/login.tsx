@@ -23,9 +23,10 @@ const Login = () => {
       title: "Users",
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(res, null, 2)}</code>
+          <code className="text-white">{JSON.stringify(res.ok, null, 2)}</code>
         </pre>
       ),
+      duration: 1000,
     });
   }
 
