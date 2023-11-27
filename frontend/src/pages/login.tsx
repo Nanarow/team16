@@ -21,8 +21,12 @@ const Login = () => {
 
   return (
     <div className="w-full h-screen bg-slate-500 flex justify-center items-center gap-2">
-      <Button onClick={onLogin}>Login</Button>
-      <Badge className=" bg-emerald-500 rounded-full">admin</Badge>
+      <div className="flex gap-2 relative">
+        <Button onClick={onLogin}>Login</Button>
+        <Badge className=" bg-emerald-500 rounded-full absolute top-0 left-0 -translate-x-1/4 -translate-y-1/2">
+          admin
+        </Badge>
+      </div>
       <Button onClick={getUser}>Get Users</Button>
       <Button onClick={() => console.log("Cookie : ", document.cookie)}>
         Cookie
