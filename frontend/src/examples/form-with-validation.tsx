@@ -35,9 +35,15 @@ const ValidateForm = () => {
                   useForm={form}
                   name="age"
                   type="number"
-                ></Form.Input>
-                <Form.Input useForm={form} name="password" type="password" />
-                <Form.TextArea useForm={form} name="name" />
+                  placeholder="age"
+                />
+                <Form.Input
+                  useForm={form}
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                />
+                <Form.TextArea useForm={form} name="name" placeholder="name" />
                 <Form.Select
                   useForm={form}
                   name="gender"
