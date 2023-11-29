@@ -120,6 +120,28 @@ func Login(c *gin.Context) {
 	responseOK(user, c)
 }
 
+func LoginEmployee(c *gin.Context) {
+	var payload entity.LoginPayload
+	var employee entity.Employee
+	err := c.ShouldBindJSON(&payload)
+	if isError(err, c) {
+		return
+	}
+	err = entity.DB().Where("email = ?", payload.Email).First(&employee).Error
+	if isError(err, c) {
+		return
+	}
+	err = utils.VerifyPassword(payload.Password, employee.Password)
+	if isError(err, c, "password not match") {
+		return
+	}
+	err = utils.GenerateJWT(c, employee.Email, 24)
+	if isError(err, c, "token could not be created") {
+		return
+	}
+	responseOK(employee, c)
+}
+
 func Logout(c *gin.Context) {
 	c.SetCookie("token", "", -1, "/", "localhost", false, true)
 	responseOK("you have been logged out", c)

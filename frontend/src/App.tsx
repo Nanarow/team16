@@ -19,9 +19,9 @@ import ValidateForm from "./examples/form-with-validation";
 function App() {
   return (
     <Routes>
-      <Route path="/login/admin" element={<Login />}></Route>
-      <Route path="/login/employee" element={<Login />}></Route>
-      <Route path="/login" element={<Login />}></Route>
+      <Route path="/login/admin" element={<Login role="admin" />}></Route>
+      <Route path="/login/employee" element={<Login role="employee" />}></Route>
+      <Route path="/login" element={<Login role="user" />}></Route>
       <Route path="/example/form" element={<ValidateForm />} />
 
       <Route element={<PrivateRoute role="user" />}>

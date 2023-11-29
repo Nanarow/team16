@@ -98,8 +98,8 @@ const FormInput = <T extends FieldValues>({
   } = useForm;
 
   return (
-    <div className="flex flex-col gap-1 relative">
-      {errors[name] && (
+    <div className="flex flex-col gap-1 relative grow">
+      {/* {errors[name] && (
         <Tooltip
           className=" bg-red-500 text-white"
           content={() => {
@@ -109,7 +109,7 @@ const FormInput = <T extends FieldValues>({
         >
           <AlertCircle className="absolute top-1/2 -translate-y-1/2 text-red-500 right-1 scale-75" />
         </Tooltip>
-      )}
+      )} */}
       <Input
         type={type}
         {...props}
@@ -121,9 +121,9 @@ const FormInput = <T extends FieldValues>({
           });
         }}
       />
-      {/* {errors[name] && (
+      {errors[name] && (
         <p className="text-sm text-red-500">{`${errors[name]?.message}`}</p>
-      )} */}
+      )}
     </div>
   );
 };
