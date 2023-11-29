@@ -14,6 +14,7 @@ import {
   User,
 } from "./pages";
 import PrivateRoute from "./components/privateRoute";
+import ValidateForm from "./examples/form-with-validation";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/login/admin" element={<Login />}></Route>
       <Route path="/login/employee" element={<Login />}></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/example/form" element={<ValidateForm />} />
 
       <Route element={<PrivateRoute role="user" />}>
         <Route path="/course" element={<Course />}></Route>
