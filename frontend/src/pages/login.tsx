@@ -54,7 +54,7 @@ const Login = ({ role }: LoginProps) => {
   // }
 
   return (
-    <div className="w-full h-screen bg-slate-500 flex flex-col justify-center items-center gap-2">
+    <div className="w-full h-screen bg-secondary flex flex-col justify-center items-center gap-2">
       <h1 className="text-3xl font-black text-primary mb-4">Horse Farm</h1>
       <Card className="flex flex-col w-3/4 max-w-sm relative">
         <CardHeader>
