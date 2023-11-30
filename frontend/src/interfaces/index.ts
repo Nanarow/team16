@@ -1,4 +1,4 @@
-interface TourRegistration {
+export interface TourRegistration {
   ID: number;
   UserID: number;
   TourTypeID: number;
@@ -7,7 +7,7 @@ interface TourRegistration {
   Date: Date;
 }
 
-interface TourType {
+export interface TourType {
   ID: number;
   Name: string;
   MinParticipant: number;
@@ -15,7 +15,7 @@ interface TourType {
   Description: string;
 }
 
-interface Enrollment {
+export interface Enrollment {
   ID: number;
   UserID: number;
   CourseID: number;
