@@ -12,6 +12,7 @@ func InitRouter(route *gin.Engine) {
 	route.Use(middlewares.CORS())
 
 	route.POST("/login", controllers.Login)
+	route.POST("/login/employee", controllers.LoginEmployee)
 	route.POST("/logout", controllers.Logout)
 
 	authRouter := route.Group("/")
@@ -30,12 +31,23 @@ func initRequiredAuth(route *gin.RouterGroup) {
 	InitBasicApi[*entity.Food](route, "/foods")
 	InitBasicApi[*entity.User](route, "/users")
 	InitBasicApi[*entity.Role](route, "/roles")
-	InitBasicApi[*entity.RidingLevel](route, "/riding_levels")
+	InitBasicApi[*entity.RidingLevel](route, "/riding/levels")
 	InitBasicApi[*entity.Course](route, "/courses")
 	InitBasicApi[*entity.Schedule](route, "/schedules")
 	InitBasicApi[*entity.Health](route, "/healths")
 	InitBasicApi[*entity.Horse](route, "/horses")
 	InitBasicApi[*entity.Gender](route, "/gender")
+	InitBasicApi[*entity.Position](route, "/positions")
+	InitBasicApi[*entity.TourType](route, "/tour/types")
+	InitBasicApi[*entity.TourRegistration](route, "/tour")
+	InitBasicApi[*entity.Enrollment](route, "/enrollments")
+	InitBasicApi[*entity.Support](route, "/supports")
+	InitBasicApi[*entity.Bleed](route, "/bleeds")
+	InitBasicApi[*entity.Sex](route, "/sexes")
+	InitBasicApi[*entity.Location](route, "/locations")
+	InitBasicApi[*entity.Stable](route, "/stables")
+	InitBasicApi[*entity.Address](route, "/addresses")
+	InitBasicApi[*entity.Employee](route, "/employees")
 
 	// route.GET("/users/:id", func(c *gin.Context) {
 
