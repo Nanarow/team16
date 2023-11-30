@@ -89,8 +89,9 @@ type Stable struct {
 	BaseModel
 	Maintenance time.Time
 	Cleaning    time.Time
-	Temperature string
-	Humidity    string
+	Temperature int
+	Humidity    int
+	Description string
 	Horses      []Horse
 }
 
