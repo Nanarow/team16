@@ -90,7 +90,9 @@ export interface RidingLevel {
 export interface Gender {
     ID: number;
     Name: string;
-}export interface Employee{
+}
+
+export interface Employee{
     ID:            number;
     PositionID:    number;
 	GenderID:      number;
@@ -121,10 +123,6 @@ export interface Position {
 	Description: string
 }
 
-export interface Gender {
-    ID:         number;
-    Name:       string;
-}
 
 export interface Address {
     ID:         number;
